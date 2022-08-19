@@ -19,7 +19,7 @@
                         @guest
                         <li><a href="{{route('auth.login.form')}}">@lang('public.login')</a></li>
 						<li><a href="{{route('auth.register.form')}}">@lang('public.register')</a></li>
-                        <li><a href="#support">@lang('public.home')</a></li>
+                        <li><a href="{{route('home')}}">@lang('public.home')</a></li>
                         @endguest
 
                         @auth

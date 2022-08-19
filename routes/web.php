@@ -23,8 +23,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('layouts.app');
+})->name('home');
 
 Route::prefix('auth')->namespace('Auth')->group(function () {
     Route::get('register',[RegisterController::class,'showRegisterForm'])->name('auth.register.form');
