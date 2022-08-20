@@ -13,6 +13,11 @@ nav{
     align-items: center;
 
 }
+
+a{
+    text-decoration: none;
+}
+
 .con1{
     display: flex;
     justify-content: space-around;

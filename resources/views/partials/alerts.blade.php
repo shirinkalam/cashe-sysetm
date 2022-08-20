@@ -99,3 +99,9 @@
     @lang('payment.added to basket')
 </div>
 @endif
+
+@if (session('error'))
+<div class="alert alert-danger">
+    @lang('payment.quantity exeeded')
+</div>
+@endif
