@@ -8,7 +8,9 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\SocialController;
 use App\Http\Controllers\Auth\TwoFactorController;
 use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\BasketController;
 use App\Http\Controllers\ProductsController;
+use App\Support\Storage\Contracts\StorageInterface;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,3 +56,8 @@ Route::prefix('auth')->namespace('Auth')->group(function () {
 });
 
 Route::get('products',[ProductsController::class,'index'])->name('products.index');
+Route::get('basket/add/{product}',[BasketController::class,'add'])->name('basket.add');
+
+Route::get('basket/clear', function () {
+    resolve(StorageInterface::class)->clear();
+})->name('home');

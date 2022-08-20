@@ -7,6 +7,10 @@
 
 @section('content')
 
+<div>
+    @include('partials.alerts')
+</div>
+
 <div class="container">
     <div class="row">
         @foreach ($products as $product)
@@ -15,7 +19,7 @@
                 <img class="responsive bor" src="{{asset('img/apple-watch.jpg')}}" alt="">
                 <h4>{{$product->title}}</h4>
                 <p>قیمت : <span>{{$product->price}}</span></p>
-                <a href=""><h3>افزودن به سبد خرید</h3></a>
+                <a href="{{route('basket.add',$product->id)}}"><h3>افزودن به سبد خرید</h3></a>
             </div>
         </div>
         @endforeach

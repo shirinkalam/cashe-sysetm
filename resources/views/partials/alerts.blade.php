@@ -93,3 +93,9 @@
     @lang('auth.codeResent')
 </div>
 @endif
+
+@if (session('success-to-added'))
+<div class="alert alert-success">
+    @lang('payment.added to basket')
+</div>
+@endif
