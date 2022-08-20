@@ -11,6 +11,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js" type="text/javascript"></script>
 	</head>
 	<body>
+        @inject('basket','App\Support\Basket\Basket' )
 		<nav id="menu" class="navbar navbar-default">
 			<div class="container">
 
@@ -20,6 +21,7 @@
                         <li><a href="{{route('auth.login.form')}}">@lang('public.login')</a></li>
 						<li><a href="{{route('auth.register.form')}}">@lang('public.register')</a></li>
                         <li><a href="{{route('home')}}">@lang('public.home')</a></li>
+                        <li><a href=""><i class='fas fa-shopping-cart'></i><span class="item-count">{{$basket->itemCount()}}</span></a></li>
                         @endguest
 
                         @auth

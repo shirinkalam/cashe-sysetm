@@ -48,7 +48,7 @@ a{
 
 }
 .box{
-    background-color: #afb5ec ;
+    background-color: #1ab849 ;
     color: white;
     border-radius: 10px;
     padding-bottom: 30px;
@@ -81,7 +81,7 @@ a{
 }
 .box h3:hover{
     background-color: white;
-    color:#4560f8 ;
+    color:#4bc970 ;
     transform: scale(0.9);
     transition: 0.5s;
     cursor: pointer;

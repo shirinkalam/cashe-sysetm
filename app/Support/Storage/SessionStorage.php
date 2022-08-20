@@ -5,7 +5,7 @@ namespace App\Support\Storage;
 use App\Support\Storage\Contracts\StorageInterface;
 use Countable;
 
-class SessionStorage implements StorageInterface
+class SessionStorage implements StorageInterface,Countable
 {
 
     private $bucket;
@@ -28,7 +28,7 @@ class SessionStorage implements StorageInterface
 
     public function all()
     {
-        return session()->get($this->bucket);
+        return session()->get($this->bucket) ?? [];
     }
 
     public function exists($index)
@@ -46,7 +46,7 @@ class SessionStorage implements StorageInterface
         return session()->forget($this->bucket);
     }
 
-    public function count()
+    public function count() :int
     {
         return count($this->all());
     }

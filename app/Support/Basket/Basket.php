@@ -47,4 +47,9 @@ class Basket
     {
         return $this->storage->exists($product->id);
     }
+
+    public function itemCount()
+    {
+        return $this->storage->count();
+    }
 }

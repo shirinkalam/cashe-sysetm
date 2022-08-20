@@ -27,6 +27,14 @@ body {
     text-align: center;
 }
 
+.fas{
+    color: white;
+}
+
+.item-count{
+   color:#4bc970;
+}
+
 form{
     position: relative;
 }
