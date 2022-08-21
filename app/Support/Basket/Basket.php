@@ -33,6 +33,10 @@ class Basket
             throw new QuantityExceededException();
         }
 
+        if(!$quantity){
+            return $this->storage->unset($product->id);
+        }
+
         $this->storage->set($product->id,[
             'quantity' =>$quantity,
         ]);
@@ -71,6 +75,8 @@ class Basket
         foreach($this->all() as $item){
             $total += $item->price * $item->quantity;
         }
+
+
 
         return $total;
     }

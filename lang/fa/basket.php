@@ -10,4 +10,5 @@ return [
     'amount payble' => 'مبلغ قابل پرداخت',
     'continue the order'=>'ثبت و ادامه ی سفارش',
     'empty basket'=>'سبد خرید شما خالی میباشد',
+    'update'=>'بروزرسانی',
 ];

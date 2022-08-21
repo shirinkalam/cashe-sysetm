@@ -37,7 +37,19 @@
                         <tr>
                             <td>{{$item->title}}</td>
                             <td>{{number_format($item->price)}}</td>
-                            <td>{{$item->quantity}}</td>
+                            <td>
+                                <form action="{{route('basket.update',$item->id)}}" method="POST">
+                                    @csrf
+                                    <select name="quantity" id="">
+                                        @for ($i = 0; $i <= $item->stock; $i++)
+                                            <option {{$item->quantity == $i ? 'selected' : ''}} value="{{$i}}">{{$i}}</option>
+                                        @endfor
+                                    </select>
+                                    <button class="submit" type="submit">
+                                        @lang('basket.update')
+                                    </button>
+                                </form>
+                            </td>
                          </tr>
                         @endforeach
                     </tbody>
