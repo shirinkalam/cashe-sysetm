@@ -21,7 +21,6 @@
                         <li><a href="{{route('auth.login.form')}}">@lang('public.login')</a></li>
 						<li><a href="{{route('auth.register.form')}}">@lang('public.register')</a></li>
                         <li><a href="{{route('home')}}">@lang('public.home')</a></li>
-                        <li><a href="{{route('basket.index')}}"><i class='fas fa-shopping-cart'></i><span class="item-count">{{$basket->itemCount()}}</span></a></li>
                         @endguest
 
                         @auth
@@ -29,6 +28,7 @@
                         <li><a href="{{route('auth.two.factor.toggle.form')}}">@lang('auth.two factor authentication')</a></li>
                         <li><a class="logout-btn" href="{{route('auth.logout')}}">@lang('auth.logout')</a></li>
                         @endauth
+                        <li><a href="{{route('basket.index')}}"><i class='fas fa-shopping-cart'></i><span class="item-count">{{$basket->itemCount()}}</span></a></li>
 
 					</ul>
 				</div>

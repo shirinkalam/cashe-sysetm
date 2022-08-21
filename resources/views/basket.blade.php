@@ -87,7 +87,7 @@
 				<div class="px-8 mt-4 border-t pt-4">
 				</div>
 				<div class="flex flex-col px-8 mt-4 pt-4">
-					<button class="flex items-center justify-center bg-blue-600 text-sm font-medium w-full h-10 rounded text-blue-50 hover:bg-blue-700">@lang('basket.continue the order')</button>
+					<a href="{{route('basket.checkout.form')}}" class="flex items-center justify-center bg-blue-600 text-sm font-medium w-full h-10 rounded text-blue-50 hover:bg-blue-700">@lang('basket.continue the order')</a>
 				</div>
 			</div>
 		</div>
