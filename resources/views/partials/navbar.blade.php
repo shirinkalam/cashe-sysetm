@@ -21,7 +21,7 @@
                         <li><a href="{{route('auth.login.form')}}">@lang('public.login')</a></li>
 						<li><a href="{{route('auth.register.form')}}">@lang('public.register')</a></li>
                         <li><a href="{{route('home')}}">@lang('public.home')</a></li>
-                        <li><a href=""><i class='fas fa-shopping-cart'></i><span class="item-count">{{$basket->itemCount()}}</span></a></li>
+                        <li><a href="{{route('basket.index')}}"><i class='fas fa-shopping-cart'></i><span class="item-count">{{$basket->itemCount()}}</span></a></li>
                         @endguest
 
                         @auth

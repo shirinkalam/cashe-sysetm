@@ -8,7 +8,7 @@
     @yield('links')
     <title>@yield('title')</title>
 </head>
-<body>
+<body class="w-screen min-h-screen bg-gray-100 text-gray-800">
     @include('partials.navbar')
 
     @if(session('mustVerifyEmail'))
@@ -23,9 +23,9 @@
     </div>
     @endif
 
-        <div class="">
-            @yield('content')
-        </div>
+    <div class="">
+        @yield('content')
+    </div>
 
 </body>
 </html>

@@ -27,4 +27,10 @@ class BasketController extends Controller
             return back()->with('error',__('payment.quantity exeeded'));
         }
     }
+
+    public function index()
+    {
+        $items = $this->basket->all();
+        return view('basket',compact('items'));
+    }
 }
