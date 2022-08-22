@@ -5,16 +5,19 @@ namespace App\Http\Controllers;
 use App\Exceptions\QuantityExceededException;
 use App\Models\Product;
 use App\Support\Basket\Basket;
+use App\Support\Payment\Transaction;
 use Illuminate\Http\Request;
 
 class BasketController extends Controller
 {
     private $basket;
+    private $transaction;
 
-    public function __construct(Basket $basket)
+    public function __construct(Basket $basket,Transaction $transaction)
     {
         $this->middleware('auth')->only(['checkoutForm']);
         $this->basket = $basket ;
+        $this->transaction = $transaction ;
     }
 
 
@@ -52,7 +55,10 @@ class BasketController extends Controller
     public function checkout(Request $request)
     {
         $this->validateForm($request);
-        dd($request->all());
+
+        $order = $this->transaction->checkout();
+
+        return redirect()->route('home')->with('success');
     }
 
     protected function validateForm($request)

@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Payment extends Model
 {
     use HasFactory;
+
+    protected $fillable=[
+        'order_id',
+        'method',
+        'amount',
+        'status',
+        'gateway',
+        'ref_num'
+    ];
+
+    protected $attributes=[
+        'status'=>0,
+    ];
 }

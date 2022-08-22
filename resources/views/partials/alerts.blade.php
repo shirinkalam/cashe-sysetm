@@ -100,6 +100,12 @@
 </div>
 @endif
 
+@if (session('success'))
+<div class="alert alert-success">
+    @lang('payment.your order has been registered')
+</div>
+@endif
+
 @if (session('error'))
 <div class="alert alert-danger">
     @lang('payment.quantity exeeded')

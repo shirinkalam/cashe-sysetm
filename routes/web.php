@@ -63,6 +63,3 @@ Route::get('basket/checkout',[BasketController::class,'checkoutForm'])->name('ba
 Route::post('basket/checkout',[BasketController::class,'checkout'])->name('basket.checkout');
 
 
-Route::get('basket/clear', function () {
-    resolve(StorageInterface::class)->clear();
-})->name('home');
