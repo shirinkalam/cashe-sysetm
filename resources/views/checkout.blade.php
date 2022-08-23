@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 @section('content')
+@include('partials.alerts')
 <div class='container'>
     <div class='window'>
       <div class='order-info'>

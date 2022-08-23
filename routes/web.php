@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\SocialController;
 use App\Http\Controllers\Auth\TwoFactorController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\BasketController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductsController;
 use App\Support\Storage\Contracts\StorageInterface;
 use Illuminate\Support\Facades\Route;
@@ -61,5 +62,6 @@ Route::get('basket',[BasketController::class,'index'])->name('basket.index');
 Route::post('basket/update/{product}',[BasketController::class,'update'])->name('basket.update');
 Route::get('basket/checkout',[BasketController::class,'checkoutForm'])->name('basket.checkout.form');
 Route::post('basket/checkout',[BasketController::class,'checkout'])->name('basket.checkout');
+Route::post('payment/{gateway}/callback',[PaymentController::class,'varify'])->name('payment.verify');
 
 
