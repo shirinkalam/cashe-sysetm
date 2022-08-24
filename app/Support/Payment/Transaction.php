@@ -8,6 +8,7 @@ use App\Support\Payment\Gateways\GatewayInterface;
 use App\Support\Payment\Gateways\Pasargad;
 use App\Support\Payment\Gateways\Saman;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class Transaction
@@ -23,13 +24,24 @@ class Transaction
 
     public function checkout()
     {
-        $order = $this->makeOrder();
+        DB::beginTransaction();
 
-        $payment = $this->makePayment($order);
+        try{
+            $order = $this->makeOrder();
+            $payment = $this->makePayment($order);
+
+            DB::commit();
+        }catch(\Exception $e)
+        {
+            DB::rollBack();
+            return null ;
+        }
 
         if($payment->isOnline()){
             return $this->gateWayFctory()->pay($order);
         }
+
+        $this->normailizeQuantity($order);
 
         $this->basket->clear();
 
@@ -53,6 +65,14 @@ class Transaction
             'method'=>$this->request->method,
             'amount'=>$order->amount,
         ]);
+    }
+
+    private function normailizeQuantity($order)
+    {
+        foreach($order->products as $product)
+        {
+            $product->decerementStock($product->pivot->quantity);
+        }
     }
 
     private function makeOrder()
@@ -85,6 +105,8 @@ class Transaction
         if($result['status'] == GatewayInterface::TRANSACTION_FAILED) return false ;
 
         $this->confirmPayment($result);
+
+        $this->normailizeQuantity($result['order']);
 
         $this->basket->clear();
 
